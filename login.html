@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="bagune.css">	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="-1" />
+<title>المكتبة المركزية</title>
+<style type="text/css">
+
+</style>
+
+</head>
+
+<body>
+$(if chap-id)
+	<form name="sendin" action="$(link-login-only)" method="post">
+		<input type="hidden" name="username" />
+		<input type="hidden" name="password" />
+		<input type="hidden" name="dst" value="$(link-orig)" />
+		<input type="hidden" name="popup" value="true" />
+	</form>
+	
+	<script type="text/javascript" src="/md5.js"></script>
+	<script type="text/javascript">
+	<!--
+	    function doLogin() {
+		document.sendin.username.value = document.login.username.value;
+		document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+		document.sendin.submit();
+		return false;
+	    }
+	//-->
+	</script>
+$(endif)
+
+<div id="headrgt"><img src="bg/logo-all.png"> </div>
+
+
+<div id="body">
+	
+		<div class="notice" style="color: #863a3a; font-size: 20px"><br />$(if trial == 'yes') <a style="color: #FF8080"href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"><button id="btm">بوابة المكتبة</button></a>.$(endif)</div><br />
+		<div><h1>للدخول الى بوابة المكتبة اضغط هنا</h1></div>
+</div>
+	
+	<div id="foot">DESIGNED BY FALAH RAHI / SUPERVISED BY Dr. ABDULLATEEF KHAIRI</div>
+
+	$(if error)<br /><div style="color: #FF8080; font-size: 9px">$(error)</div>$(endif)
+
+
+<script type="text/javascript">
+<!--
+  document.login.username.focus();
+//-->
+</script>
+</body>
+</html>
